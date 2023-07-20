@@ -2,6 +2,7 @@ package com.deepak.springsecurity.controller;
 
 import com.deepak.springsecurity.entities.Cards;
 import com.deepak.springsecurity.repositories.CardsRepository;
+import org.apache.catalina.authenticator.SingleSignOn;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,5 +25,4 @@ public class CardsController {
             return null;
         }
     }
-
 }
