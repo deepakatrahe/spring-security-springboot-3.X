@@ -1,6 +1,7 @@
 package com.deepak.springsecurity.config;
 
 import com.deepak.springsecurity.filter.CsrfCookieFilter;
+import com.deepak.springsecurity.filter.JWTTokenGeneratorFilters;
 import com.deepak.springsecurity.filter.RequestValidationBeforeFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
@@ -45,6 +46,7 @@ public class SecurityConfig {
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .addFilterBefore(new RequestValidationBeforeFilter(), BasicAuthenticationFilter.class)
+                .addFilterAfter(new JWTTokenGeneratorFilters(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards", "/user").authenticated()
                         .requestMatchers("/notices", "/contact", "/register").permitAll())
