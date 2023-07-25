@@ -1,4 +1,5 @@
 CREATE DATABASE spring_security;
+
 USE spring_security;
 
 CREATE TABLE `customer` (
